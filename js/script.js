@@ -8,7 +8,7 @@ let attribute;
 function sortGallery() {
     for (let image of imageGalleryElts) {
         if (attribute === '*') {
-            image.classList.remove('hide');
+            resetGallery();
         }
         else if (!image.classList.contains(attribute)) {
             image.classList.add('hide');
@@ -32,8 +32,8 @@ function addClassActive(event) {
         attribute = event.target.getAttribute('data-filter');
     }
     sortGallery();
-    console.log(event.target);
-    console.log(attribute);
+    // console.log(event.target);
+    // console.log(attribute);
 }
 
 // Ajout de la class active au click et affectation du data-filter
@@ -51,16 +51,26 @@ let attributeSrc;
 //Ajout de la modal
 for (let image of imageGalleryElts) {
     image.addEventListener('click', function() {
-        console.log(this);
-        console.log(this.childNodes);
+        // console.log(this);
+        // console.log(this.childNodes);
         attributeSrc = this.childNodes[1].getAttribute('src');
         modalImgElt.src = attributeSrc;
         modalElt.classList.remove('hide');
-        console.log(attributeSrc);
+        // console.log(attributeSrc);
     });
 }
 
 //Sortie de la modal
 modalCrossElt.addEventListener('click', function() {
     modalElt.classList.add('hide');
-})
+});
+
+//Gestion du clic sur la modal pour la fermer
+modalElt.addEventListener('click', function(){
+    modalElt.classList.add('hide');
+});
+
+// Eviter que la modal se ferme au click sur l'image en evitant la propagation de l'evenement
+modalImgElt.addEventListener('click', function(event){
+    event.stopPropagation();
+});
