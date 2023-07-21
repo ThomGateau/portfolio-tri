@@ -1,0 +1,153 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+}
+
+header {
+    padding: 5rem;
+}
+
+header h1 {
+    font-weight: 100;
+    text-align: center;
+    font-size: 5rem;
+}
+
+.container {
+    max-width: 90rem;
+    margin: 0 auto;
+}
+
+nav ul {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    text-transform: uppercase;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-bottom: 3rem;
+    letter-spacing: .2rem;
+}
+
+nav ul li a {
+    color: #a7b6b9;
+    text-decoration: none;
+    transition: box-shadow .5s, color .1s;
+    font-weight: 300;
+}
+
+nav ul li a.active {
+    box-shadow: inset 0 -6px 0px #edea98;
+    color: #345;
+}
+
+nav ul li a:hover {
+    box-shadow: inset 0 -6px 0px #edea98;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+.imageGallery img {
+    width: 100%;
+    display: block;
+}
+
+.imageGallery {
+    margin: 2rem 1rem;
+    max-width: 400px;
+    opacity: 1;
+    /* pour animation */
+    transition: opacity .5s linear, .5s transform ease-in-out;
+    cursor: pointer;
+}
+
+.imageGallery:hover {
+    transform: scale(1.05);
+}
+
+.blocTitreGallery {
+    text-align: center;
+}
+
+.blocTitreGallery h3 {
+    color: #345;
+    margin: 2rem 0 .5rem 0;
+    padding: 0;
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.blocTitreGallery h6 {
+    color: #a7b6b9;
+    margin: 0;
+    padding: 0;
+    font-size: 1.4rem;
+    font-weight: 200;
+}
+
+.hide {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+    visibility: hidden;
+    transition: opacity .2s;
+}
+
+/* Modal */
+#modal {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity .2s linear;
+}
+
+.imageModal {
+    width: 60%;
+    position: relative;
+    opacity: 1;
+}
+
+.imageModal img {
+    width: 100%;
+}
+
+.imageModal span {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color .3s;
+}
+
+.imageModal span:hover {
+    color: #333;
+}
